@@ -1,5 +1,5 @@
 const cohort = process.argv.slice(2);
-const values = [cohort];
+const values = [cohort[0]];
 const { Pool } = require('pg');
 
 const pool = new Pool({
@@ -8,8 +8,6 @@ const pool = new Pool({
   host: 'localhost',
   database: 'bootcampx'
 });
-
-const { Client } = require('pg');
 
 const queryString = `SELECT DISTINCT teachers.name as teacher, cohorts.name as cohort
 FROM assistance_requests

@@ -1,8 +1,9 @@
 const user = process.argv.slice(2);
-const cohortName = user[0];
+const cohortName = [user[0]];
 const limit = user[1] || 5;
 
-const values = ['%{cohortName}%', limit];
+const values = [`%${cohortName}%`, limit];
+console.log(values);
 
 const { Pool } = require('pg');
 
