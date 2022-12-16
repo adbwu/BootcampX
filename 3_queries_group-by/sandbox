@@ -1,0 +1,9 @@
+SELECT name, continent, population
+FROM world
+WHERE 
+(SELECT continent, COUNT(name)
+FROM world
+GROUP BY continent) = (SELECT continent, COUNT(name)
+FROM world
+WHERE population <= 225000000
+GROUP BY continent)
